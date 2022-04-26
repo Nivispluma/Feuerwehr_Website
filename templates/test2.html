@@ -1,18 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../static/styles/style.css">
+	<meta charset="UTF-8">
+	<title>Dropdown Menu using HTML CSS and Javascript</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/drop_down.css') }}">
+
 </head>
 <body>
-    <div class="wrapper">
-        <div class="em_selection_grid_child"><p>hello</p></div>
-        <div class="em_selection_grid_child"><p>hello</p></div>
-        <div class="em_selection_grid_child"><p>hello</p></div>
-        <div class="em_selection_grid_child"><p>hello</p></div>
-        <div class="em_selection_grid_child"><p>hello</p></div>
-        <div class="em_selection_grid_child"><p>hello</p></div>
-    </div>
+
+<div class="wrapper">
+	<div class="navbar">
+		<ul>
+			<li><a href="#" class="a_parent">
+				<div class="wrap">
+
+					<span class="text">Home</span>
+				</div>
+			</a></li>
+			<li><a href="#" class="a_parent">
+				<div class="wrap">
+
+					<span class="text">Sports</span>
+				</div>
+				</a>
+				<div class="dd_menu">
+					<ul>
+						<li>
+							<a href="#" class="dd_menu_a">
+								<div class="wrap">
+									<span class="text">
+									Running
+									</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#"  class="dd_menu_a">
+								<div class="wrap">
+									<span class="text">Biking</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#"  class="dd_menu_a">
+								<div class="wrap">
+
+								<span class="text">Football</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#"  class="dd_menu_a">
+								<div class="wrap">
+								<span class="text">Swimmer</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="#" class="a_parent">
+				<div class="wrap">
+					<span class="text">Food</span>
+				</div>
+				</a>
+				<div class="dd_menu">
+					<ul>
+						<li>
+							<a href="#" class="dd_menu_a">
+								<div class="wrap">
+
+									<span class="text">
+									Running
+									</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="dd_menu_a">
+								<div class="wrap">
+
+									<span class="text">Biking</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="dd_menu_a">
+								<div class="wrap">
+
+								<span class="text">Football</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#" class="dd_menu_a">
+								<div class="wrap">
+								    <span class="text">Swimmer</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="#" class="a_parent">
+				<div class="wrap">
+
+					<span class="text">Items</span>
+				</div>
+			</a></li>
+			<li><a href="#" class="a_parent">
+				<div class="wrap">
+
+					<span class="text">Settings</span>
+				</div>
+			</a></li>
+			</ul>
+	</div>
+</div>
+
+<script src={{url_for('static',filename='js/drop_down.js')}}></script>
+
 </body>
 </html>

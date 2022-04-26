@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="OwO">
+<head>
+    <meta charset="UTF-8" content="with=device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+
+    {% if title %}
+        <title>Feuerwehr Sontheim - {{ title }}</title>
+    {% else %}
+        <title>Feuerwehr Sontheim</title>
+    {% endif %}
+</head>
+<body>
+    <section class="header">
+
+        <div class="grid-container-nav">
+            <div class="grid-item item1">
+                <a href="layout.html"><img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}"> </a>
+            </div>
+            <div class="nav-links grid-item-nav item2">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Einsätze</a></li>
+                    <li><a href="">Galerie</a></li>
+                    <li><a href="">Downloads</a></li>
+                    <li><a href="">Impressum</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </section>
+
+    {% block further %}
+    {% endblock %}
+
+</body>
+</html>

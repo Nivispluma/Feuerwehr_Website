@@ -1,0 +1,15 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+    <div class="grid_gallery">
+{% for image in images%}
+
+            <img class="gallery_item" loading="lazy" src="static/styles/pictures/gallery/{{image}}">
+
+{% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block further %}
+{% endblock %}

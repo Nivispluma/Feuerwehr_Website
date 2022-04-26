@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content%}
+    <div class="text-box">
+        <h1> Feuerwehr Sontheim </h1>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt <br> ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        </p>
+    </div>
+{% endblock content %}
+
+{% block further %}
+    <section class="body-box">
+        <div class="content-box">
+            <h1> Förderverein </h1>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt <br> ut labore et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            </p>
+        </div>
+    </section>
+    <section class="body-box">
+        <div class="content-box pickgradient ">
+            <img id="img_side_to_side" src="{{url_for('static',filename='styles/pictures/HLF2.jpg')}}">
+            <h1> Weiteres </h1>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt <br> ut labore et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            </p>
+        </div>
+    </section>
+
+    <section  style="background-image: url('{{ url_for('static', filename=img_var_path) }}')">
+        <div>
+            <p>
+                Test
+            </p>
+        </div>
+    </section>
+
+{% endblock further %}

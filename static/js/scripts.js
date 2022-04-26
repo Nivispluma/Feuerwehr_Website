@@ -12,29 +12,19 @@ function myFunction(){
 
 //----------------------
 
-document.getElementsByTagName("BODY")[0].onload = Init;
 
-function Init()
-{
-
-}
-
-let elemDiv = document.createElement('div');
-elemDiv.style.cssText = 'position:absolute;width:100%;height: 10px; opacity:0.3;z-index:100;background:#000;';
-document.body.appendChild(elemDiv);
-
-let myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hallo Welt!';
 
 //--------------------------------------------------------
 
-function createMenuItem(name) {
+function createMenuItem(menu_item) {
     let li = document.createElement('li');
-    li.textContent = name;
+    //li.textContent = menu_item;
+    li.innerHTML = menu_item;
     return li;
 }
 // get the ul#menu
 const menu = document.querySelector('#menu');
 // add menu item
 
-menu.appendChild(createMenuItem('Dienste'));
+menu.appendChild(createMenuItem('<a href="">Dienste</a>'));
+

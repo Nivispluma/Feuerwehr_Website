@@ -164,3 +164,30 @@
     display: grid;
 
 }
+
+
+
+/* -------------------- login -------------------------- */
+
+.login_wrapper{
+
+    display: grid;
+    margin: auto;
+    width: 50%;
+
+    justify-items: center;
+
+    grid-auto-flow: row;
+
+
+
+    background: -moz-linear-gradient(-45deg, #1C6EA4 70%, #144E75 100%);
+    background: -webkit-linear-gradient(-45deg, #1C6EA4 0%, #144E75 100%);
+    background: linear-gradient(135deg, #1C6EA4 0%, #144E75 100%);
+
+}
+
+.login_element{
+    border-radius: 50px;
+    width: 10rem;
+}

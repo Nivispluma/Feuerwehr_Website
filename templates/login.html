@@ -1,0 +1,21 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<div class="login_wrapper">
+    <form>
+        <ul>
+            {% for form in login_form %}
+                <li >
+                    {{ form.label }}
+                    <br>
+                    {{ form(class_='login_element') }}
+                </li>
+            {% endfor %}
+        </ul>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block further %}
+{% endblock %}

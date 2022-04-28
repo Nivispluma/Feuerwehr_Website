@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   flask_test:
+    container_name: flask-webapp
     build:
       context: ./
     ports:

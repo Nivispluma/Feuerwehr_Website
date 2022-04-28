@@ -183,3 +183,14 @@ nav img{
     z-index:-1;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
 }
+
+
+/*-------------------- canvas -------------------------*/
+
+.canvas_class{
+    width: 50%;
+    height: 200px;
+    background: aquamarine;
+    border-radius: 10px;
+    position: center;
+}

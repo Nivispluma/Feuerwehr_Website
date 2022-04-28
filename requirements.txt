@@ -1,1 +1,4 @@
 Flask==2.1.1
+flask-wtf
+wtforms
+wtforms[email]

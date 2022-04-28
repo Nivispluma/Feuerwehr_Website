@@ -4,8 +4,10 @@ from pathlib import Path
 import os
 import random
 
+from forms import RegistrationForm, UserLogin
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '6be7ec69776fa02df4c2970a3c197a35'
 
 # Hilfe gibt es durch den Guide
 # https://www.youtube.com/watch?v=oYRda7UtuhA&t=524s
@@ -70,9 +72,50 @@ def test_page_2():  # put application's code here
     return render_template("test2.html", img_var_path=img_var_path)
 
 
+# -------------------- Test Function --------------------
+
+@app.route('/canvas_test')
+def canvas_page():  # put application's code here
+    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
+    print(img_var_name)
+    img_var_path = "styles/pictures/background/" + str(img_var_name)
+    print(img_var_path)
+
+    return render_template("canvas.html", img_var_path=img_var_path)
+
+
 # -------------------------------------------------------------------------------
 
+@app.route('/registrierung')
+@app.route('/Registrierung')
+def registration_page():  # put application's code here
+    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
+    print(img_var_name)
+    img_var_path = "styles/pictures/background/" + str(img_var_name)
+    print(img_var_path)
+
+    registration_form = RegistrationForm()
+
+    return render_template("registrierung.html", img_var_path=img_var_path, registration_form=registration_form)
+
+
+@app.route('/login')
+@app.route('/Login')
+def login_page():  # put application's code here
+    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
+    print(img_var_name)
+    img_var_path = "styles/pictures/background/" + str(img_var_name)
+    print(img_var_path)
+
+    login_form = UserLogin()
+
+    return render_template("login.html", img_var_path=img_var_path, login_form=login_form)
+
+
+# -------------------------------------------------------------------------------------------
 
 # run program
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

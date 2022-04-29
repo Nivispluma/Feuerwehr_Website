@@ -1,7 +1,19 @@
 {% extends "base_layout.html" %}
 
 {% block content %}
-
+<div class="login_wrapper">
+    <form>
+        {{ registration_form.username(class_='login_element login_text_box', placeholder="Benutzername") }}
+        <br>
+        {{ registration_form.user_email(class_='login_element login_text_box', placeholder="Email") }}
+        <br>
+        {{ registration_form.password(class_='login_element login_text_box', placeholder="Passwort") }}
+        <br>
+        {{ registration_form.confirm_password(class_='login_element login_text_box', placeholder="Passwort") }}
+        <br>
+        {{ registration_form.submit_button(class_='login_element login_submit_button') }}
+    </form>
+</div>
 {% endblock %}
 
 

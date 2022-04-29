@@ -3,15 +3,15 @@
 {% block content %}
 <div class="login_wrapper">
     <form>
-        <ul>
-            {% for form in login_form %}
-                <li >
-                    {{ form.label }}
-                    <br>
-                    {{ form(class_='login_element') }}
-                </li>
-            {% endfor %}
-        </ul>
+
+        {{ login_form.user_email(class_='login_element login_text_box', placeholder="Email") }}
+        <br>
+        {{ login_form.password(class_='login_element login_text_box', placeholder="Passwort") }}
+        <br>
+        {{ login_form.stay_logged_in(class_='login_element login_select_box', placeholder="login") }}
+        {{ login_form.stay_logged_in.label(class_='login_text') }}
+        <br>
+        {{ login_form.submit_button(class_='login_element login_submit_button') }}
     </form>
 </div>
 {% endblock %}

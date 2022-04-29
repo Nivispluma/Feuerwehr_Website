@@ -1,4 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, \
+    render_template, \
+    url_for, \
+    request, \
+    flash, \
+    redirect, \
+    session
+
 import platform
 from pathlib import Path
 import os
@@ -86,8 +93,8 @@ def canvas_page():  # put application's code here
 
 # -------------------------------------------------------------------------------
 
-@app.route('/registrierung')
-@app.route('/Registrierung')
+@app.route('/registrierung', methods=['GET', 'POST'])
+@app.route('/Registrierung', methods=['GET', 'POST'])
 def registration_page():  # put application's code here
     img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
     print(img_var_name)
@@ -96,11 +103,14 @@ def registration_page():  # put application's code here
 
     registration_form = RegistrationForm()
 
+    if registration_form.validate_on_submit():
+        flash(f'Account wurde erstellt für {registration_form.username.data}', 'success')
+        return redirect(url_for('index_page'))
     return render_template("registrierung.html", img_var_path=img_var_path, registration_form=registration_form)
 
 
-@app.route('/login')
-@app.route('/Login')
+@app.route('/login', methods=['GET', 'POST'])
+@app.route('/Login', methods=['GET', 'POST'])
 def login_page():  # put application's code here
     img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
     print(img_var_name)
@@ -108,6 +118,10 @@ def login_page():  # put application's code here
     print(img_var_path)
 
     login_form = UserLogin()
+
+    if login_form.validate_on_submit():
+        flash(f'Wilkommen {login_form.user_email.data}', 'success')
+        return redirect(url_for('index_page'))
 
     return render_template("login.html", img_var_path=img_var_path, login_form=login_form)
 

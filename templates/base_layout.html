@@ -28,11 +28,11 @@
             </div>
             <div class="nav-links grid-item-nav item2">
                 <ul id="menu">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Einsätze</a></li>
-                    <li><a href="">Galerie</a></li>
-                    <li><a href="">Downloads</a></li>
-                    <li><a href="">Impressum</a></li>
+                    <li><a href={{ url_for('index_page') }}>Home</a></li>
+                    <li><a href={{ url_for('choose_emergency_operation') }}>Einsätze</a></li>
+                    <li><a href={{ url_for('gallery_page') }}>Galerie</a></li>
+                    <li><a href={{ url_for('gallery_page') }}>Downloads</a></li>
+                    <li><a href={{ url_for('gallery_page') }}>Impressum</a></li>
                 </ul>
             </div>
 
@@ -40,8 +40,18 @@
 
         <!-- -->
 
+
         {% block content %}
         {% endblock %}
+
+    <div class="login_icons">
+        <a href={{ url_for('login_page') }}>
+            <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/login_white_24dp.svg') }}">
+        </a>
+        <a href={{ url_for('registration_page') }}>
+            <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
+        </a>
+    </div>
 
     </section>
 
@@ -49,12 +59,7 @@
 
     {% block further %}
     {% endblock %}
-    <h1>UwU</h1>
-      <p id="demo">0</p>
-      <button type="button" onmouseover="myFunction()" onclick="myFunction()">Count!</button>
-      <p>Resize the browser window to fire the <code>resize</code> event.</p>
-      <p>Window height: <span id="height"></span></p>
-      <p>Window width: <span id="width"></span></p>
+
     <script src='{{url_for('static',filename='js/scripts.js')}}'></script>
 </body>
 </html>

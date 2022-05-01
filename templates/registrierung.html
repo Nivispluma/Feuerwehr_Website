@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="login_wrapper">
-    <form>
+    <form method="post">
         {{ registration_form.username(class_='login_element login_text_box', placeholder="Benutzername") }}
         <br>
         {{ registration_form.user_email(class_='login_element login_text_box', placeholder="Email") }}

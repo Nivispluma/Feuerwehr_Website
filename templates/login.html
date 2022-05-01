@@ -5,7 +5,7 @@
 
 
 <div class="login_wrapper">
-    <form>
+    <form method="post">
 
         {{ login_form.user_email(class_='login_element login_text_box form-control', placeholder="Email") }}
         <br>
@@ -14,8 +14,12 @@
         {{ login_form.stay_logged_in(class_='login_element login_select_box form-control', placeholder="login") }}
         {{ login_form.stay_logged_in.label(class_='login_text form-control') }}
         <br>
-        {{ login_form.submit_button(class_='login_element login_submit_button form-control') }}
+        {{ login_form.csrf_token }}
+        {{ login_form.submit_button(class_='login_submit_button login_element') }}
+
     </form>
+
+
 </div>
 
 {% endblock %}

@@ -6,6 +6,7 @@ from flask import Flask, \
     redirect, \
     session
 
+import wtforms
 import platform
 from pathlib import Path
 import os
@@ -102,15 +103,23 @@ def registration_page():  # put application's code here
     print(img_var_path)
 
     registration_form = RegistrationForm()
+    # ---------------------------------------------------
+    # just some debugging BS
+    if request.method == 'POST':
+        print("Schmutz")
+    print(registration_form.validate_on_submit())
+    print(registration_form.errors)
+    # ---------------------------------------------------
 
     if registration_form.validate_on_submit():
         flash(f'Account wurde erstellt für {registration_form.username.data}', 'success')
         return redirect(url_for('index_page'))
+
     return render_template("registrierung.html", img_var_path=img_var_path, registration_form=registration_form)
 
 
-@app.route('/login', methods=['GET', 'POST'])
-@app.route('/Login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST', 'GET'])
+# @app.route('/Login', methods=['GET', 'POST'])
 def login_page():  # put application's code here
     img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
     print(img_var_name)
@@ -119,15 +128,36 @@ def login_page():  # put application's code here
 
     login_form = UserLogin()
 
+    # ---------------------------------------------------
+    # just some debugging BS
+    if request.method == 'POST':
+        print("Schmutz")
+    print(login_form.validate_on_submit())
+    print(login_form.errors)
+    # ---------------------------------------------------
+
     if login_form.validate_on_submit():
-        flash(f'Wilkommen {login_form.user_email.data}', 'success')
-        return redirect(url_for('index_page'))
+        # flash(f'Wilkommen {login_form.user_email.data}', 'success')
+        print("Registration debug")
+        return redirect(url_for("index_page"))
 
     return render_template("login.html", img_var_path=img_var_path, login_form=login_form)
 
 
-# -------------------------------------------------------------------------------------------
+# ------------------------------- Error Handler ------------------------------------------------------------
 
+# Error 404 - URL not found
+@app.errorhandler(404)
+def error_handler_page_404(e):
+    return render_template("Error Pages/err404.html"), 404
+
+
+# Error 500 - Internal Server Error
+@app.errorhandler(500)
+def error_handler_page_500(e):
+    return render_template("Error Pages/err500.html"), 500
+
+# -------------------------------------------------------------------------------
 # run program
 
 

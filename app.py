@@ -14,8 +14,30 @@ import random
 
 from forms import RegistrationForm, UserLogin
 
+from flask_sqlalchemy import SQLAlchemy
+
+
+# --------------------------- Config ----------------------------------------
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6be7ec69776fa02df4c2970a3c197a35'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+fw_db = SQLAlchemy(app)  # create database instance
+
+# ------------------------------------------------------------------------
+
+
+class User(fw_db.Model):  # Defines the User Table
+    id = fw_db.Column(fw_db.Integer, primary_key=True)
+    username = fw_db.Column(fw_db.String(20), unique=True, nullable=False)
+    user_email = fw_db.Column(fw_db.String(100), unique=True, nullable=False)
+    profile_img = fw_db.Column(fw_db.String(20), nullable=False, default='default.jpg')
+    password = fw_db.Column(fw_db.String(60), nullable=False)
+
+    # defines the output of the Database
+    def __repr__(self):
+        return f"User('{self.id}','{self.username}','{self.user_email}','{self.profile_img}')"
+
 
 # Hilfe gibt es durch den Guide
 # https://www.youtube.com/watch?v=oYRda7UtuhA&t=524s
@@ -92,7 +114,7 @@ def canvas_page():  # put application's code here
     return render_template("canvas.html", img_var_path=img_var_path)
 
 
-# -------------------------------------------------------------------------------
+# -------------------------- Registrierung -----------------------------------------------------
 
 @app.route('/registrierung', methods=['GET', 'POST'])
 @app.route('/Registrierung', methods=['GET', 'POST'])
@@ -117,6 +139,8 @@ def registration_page():  # put application's code here
 
     return render_template("registrierung.html", img_var_path=img_var_path, registration_form=registration_form)
 
+
+# -------------------------- Login -----------------------------------------------------
 
 @app.route('/login', methods=['POST', 'GET'])
 # @app.route('/Login', methods=['GET', 'POST'])
@@ -149,13 +173,13 @@ def login_page():  # put application's code here
 # Error 404 - URL not found
 @app.errorhandler(404)
 def error_handler_page_404(e):
-    return render_template("Error Pages/err404.html"), 404
+    return render_template("Error_Pages/err404.html"), 404
 
 
 # Error 500 - Internal Server Error
 @app.errorhandler(500)
 def error_handler_page_500(e):
-    return render_template("Error Pages/err500.html"), 500
+    return render_template("Error_Pages/err500.html"), 500
 
 # -------------------------------------------------------------------------------
 # run program

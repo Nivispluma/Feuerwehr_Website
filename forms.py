@@ -27,7 +27,7 @@ class UserLogin(FlaskForm):
                              validators=[DataRequired(), email()])
 
     password = PasswordField('Passwort',
-                             validators=[DataRequired()])
+                             validators=[DataRequired(),length(min=8)])
 
     stay_logged_in = BooleanField('merken')
 

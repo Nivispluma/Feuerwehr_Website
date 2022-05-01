@@ -242,3 +242,13 @@
     height: auto;
     margin: 10px;
 }
+
+.login_error_box{
+    border-color: #ff4a4a;
+    border-width: 2px;
+}
+
+.login_error_text{
+    color: #ff4a4a;
+    text-align: center;
+}

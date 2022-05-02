@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 
 </head>
-<body>
+<body style="background-color: #272727">
 
 <div class="wrapper">
 	<div class="navbar">
@@ -121,8 +121,9 @@
 
 <canvas class="canvas_class"></canvas>
 
+<input id="clickMe" type="button" value="clickme" onclick="wikiCall();" />
 
 <script src={{url_for('static',filename='js/drop_down.js')}}></script>
-
+<script src={{url_for('static',filename='js/task2.js')}}></script>
 </body>
 </html>

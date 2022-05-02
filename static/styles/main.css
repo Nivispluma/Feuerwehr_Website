@@ -190,7 +190,8 @@ nav img{
 .canvas_class{
     width: 50%;
     height: 200px;
-    background: aquamarine;
+    background: #1c1c1c;
     border-radius: 10px;
     position: center;
+
 }

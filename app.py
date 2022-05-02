@@ -11,6 +11,9 @@ import platform
 from pathlib import Path
 import os
 import random
+import json
+
+import requests
 
 from forms import RegistrationForm, UserLogin
 
@@ -167,8 +170,34 @@ def login_page():  # put application's code here
 
     return render_template("login.html", img_var_path=img_var_path, login_form=login_form)
 
+# ------------------------------- Reverse Proxy ------------------------------------------------------------
+
+
+@app.route('/proxy', methods=['POST', 'GET'])
+def reverse_proxy():
+    api_key = "39c7b6d066d8513e8ce2a535a143f4f6"
+
+    url_2 = request.args['url']
+    print(url_2)
+
+    lat = "48.208176"
+    lon = "16.373819"
+    url = "https://api.openweathermap.org/data/2.5/onecall?lat=%s&lon=%s&appid=%s&units=metric" % (lat, lon, api_key)
+    #url_2 = "https://en.wikipedia.org/w/api.php?action=query&format=json&revids=347819%7C5487%7C548945&formatversion=2"
+
+    response = requests.get(url)
+    data = json.loads(response.text)
+    #print(data)
+
+    response_2 = requests.get(url_2)
+    data_2 = json.loads(response_2.text)
+    print(data_2)
+
+    return data_2
+
 
 # ------------------------------- Error Handler ------------------------------------------------------------
+
 
 # Error 404 - URL not found
 @app.errorhandler(404)

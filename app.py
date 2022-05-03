@@ -13,7 +13,11 @@ import os
 import random
 import json
 
+from helper import get_background_img_path
+
+# for reverse proxy
 import requests
+
 
 from forms import RegistrationForm, UserLogin
 
@@ -49,12 +53,8 @@ class User(fw_db.Model):  # Defines the User Table
 @app.route('/')
 @app.route('/home')
 def index_page():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
-    return render_template("index.html", img_var_path=img_var_path)
+    return render_template("index.html", img_var_path=get_background_img_path())
 
 
 # -------------------- Emergency Selection Function --------------------
@@ -83,12 +83,8 @@ def gallery_page():
 @app.route('/lab')
 @app.route('/test')
 def test_page():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
-    return render_template("test.html", img_var_path=img_var_path)
+    return render_template("test.html", img_var_path=get_background_img_path())
 
 
 # -------------------- Test Function --------------------
@@ -97,24 +93,16 @@ def test_page():  # put application's code here
 @app.route('/lab2')
 @app.route('/test2')
 def test_page_2():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
-    return render_template("test2.html", img_var_path=img_var_path)
+    return render_template("test2.html", img_var_path=get_background_img_path())
 
 
 # -------------------- Test Function --------------------
 
 @app.route('/canvas_test')
 def canvas_page():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
-    return render_template("canvas.html", img_var_path=img_var_path)
+    return render_template("canvas.html", img_var_path=get_background_img_path())
 
 
 # -------------------------- Registrierung -----------------------------------------------------
@@ -122,10 +110,6 @@ def canvas_page():  # put application's code here
 @app.route('/registrierung', methods=['GET', 'POST'])
 @app.route('/Registrierung', methods=['GET', 'POST'])
 def registration_page():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
     registration_form = RegistrationForm()
     # ---------------------------------------------------
@@ -140,7 +124,7 @@ def registration_page():  # put application's code here
         flash(f'Account wurde erstellt für {registration_form.username.data}', 'success')
         return redirect(url_for('index_page'))
 
-    return render_template("registrierung.html", img_var_path=img_var_path, registration_form=registration_form)
+    return render_template("registrierung.html", img_var_path=get_background_img_path(), registration_form=registration_form)
 
 
 # -------------------------- Login -----------------------------------------------------
@@ -148,10 +132,6 @@ def registration_page():  # put application's code here
 @app.route('/login', methods=['POST', 'GET'])
 # @app.route('/Login', methods=['GET', 'POST'])
 def login_page():  # put application's code here
-    img_var_name = random.choice(os.listdir("static/styles/pictures/background/"))
-    print(img_var_name)
-    img_var_path = "styles/pictures/background/" + str(img_var_name)
-    print(img_var_path)
 
     login_form = UserLogin()
 
@@ -168,33 +148,30 @@ def login_page():  # put application's code here
         print("Registration debug")
         return redirect(url_for("index_page"))
 
-    return render_template("login.html", img_var_path=img_var_path, login_form=login_form)
+    return render_template("login.html", img_var_path=get_background_img_path(), login_form=login_form)
+
+
+# ------------------------------- Searcher -----------------------------------------------------
+
+
+@app.route('/wikiSearch', methods=['POST', 'GET'])
+def wiki_search():
+    return render_template("wikiSearch.html", img_var_path=get_background_img_path())
+
 
 # ------------------------------- Reverse Proxy ------------------------------------------------------------
 
 
 @app.route('/proxy', methods=['POST', 'GET'])
 def reverse_proxy():
-    api_key = "39c7b6d066d8513e8ce2a535a143f4f6"
-
-    url_2 = request.args['url']
-    print(url_2)
-
-    lat = "48.208176"
-    lon = "16.373819"
-    url = "https://api.openweathermap.org/data/2.5/onecall?lat=%s&lon=%s&appid=%s&units=metric" % (lat, lon, api_key)
-    #url_2 = "https://en.wikipedia.org/w/api.php?action=query&format=json&revids=347819%7C5487%7C548945&formatversion=2"
-
+    # get the url for wiki search
+    url = request.args['url']
+    # save the response from wikipedia
     response = requests.get(url)
+    # convert the response to text and convert it json
     data = json.loads(response.text)
-    #print(data)
-
-    response_2 = requests.get(url_2)
-    data_2 = json.loads(response_2.text)
-    print(data_2)
-
-    return data_2
-
+    # return a json
+    return data
 
 # ------------------------------- Error Handler ------------------------------------------------------------
 

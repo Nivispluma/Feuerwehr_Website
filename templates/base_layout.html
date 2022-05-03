@@ -40,18 +40,21 @@
 
         <!-- -->
 
+        <div class="login_icons">
+            <a href={{ url_for('login_page') }}>
+                <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/login_white_24dp.svg') }}">
+            </a>
+            <a href={{ url_for('registration_page') }}>
+                <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
+            </a>
+        </div>
+        <!-- -->
+
 
         {% block content %}
         {% endblock %}
 
-    <div class="login_icons">
-        <a href={{ url_for('login_page') }}>
-            <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/login_white_24dp.svg') }}">
-        </a>
-        <a href={{ url_for('registration_page') }}>
-            <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
-        </a>
-    </div>
+
 
     </section>
 
@@ -60,6 +63,8 @@
     {% block further %}
     {% endblock %}
 
+    {% block scripts %}
+    {% endblock %}
     <script src='{{url_for('static',filename='js/scripts.js')}}'></script>
 </body>
 </html>

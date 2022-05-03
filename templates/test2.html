@@ -121,8 +121,11 @@
 
 <canvas class="canvas_class"></canvas>
 
-<input id="clickMe" type="button" value="clickme" onclick="wikiCall();" />
+<input id="searchBar" type="text" placeholder="Suchbegriff eingeben">
 
+<input id="clickMe" type="button" value="clickme" onclick="wikiFetch();" />
+
+<div id="demo"></div>
 <script src={{url_for('static',filename='js/drop_down.js')}}></script>
 <script src={{url_for('static',filename='js/task2.js')}}></script>
 </body>

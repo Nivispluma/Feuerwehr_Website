@@ -185,8 +185,6 @@
 
     grid-auto-flow: row;
 
-
-
     background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
 
 }
@@ -198,8 +196,6 @@
 }
 
 .login_text_box{
-
-
 
     border-radius: 7px;
 
@@ -251,4 +247,35 @@
 .login_error_text{
     color: #ff4a4a;
     text-align: center;
+}
+
+
+
+/*-------------------- search Page -------------------------*/
+
+.search_bar_wrapper{
+
+    margin: auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
+}
+
+.search_bar{
+    border-width: 0;
+    background-color: #272727;
+    color: white;
+    border-radius: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    width: 25vw;
+}
+
+.search_button{
+
 }

@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, length, email, equal_to
 
 class RegistrationForm(FlaskForm):
     # check if email exists in database
-    def validate_email(self, user_email):
+    def validate_user_email(self, user_email):
         from app import User
         print(user_email.data)
         mail = User.query.filter_by(user_email=user_email.data).first()

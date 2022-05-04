@@ -279,3 +279,58 @@
 .search_button{
 
 }
+
+
+
+
+
+
+
+
+/*---------------------------------------------*/
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child {
+  flex: 1 0 21%;
+  margin: 5px;
+  height: 100px;
+  background-color: blue;
+}
+
+
+
+
+.search_result_grid_wrapper{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
+    padding: 2vh;
+    border-radius: 3vh;
+}
+
+.search_result_grid_child{
+    border-color: red;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 1vh;
+    margin: 1vh;
+    color: white;
+    text-align: center;
+    padding: 1vh;
+}
+
+
+
+.subsection{
+    margin-inline: auto;
+    width: fit-content;
+    margin-top: 10vh;
+}
+
+#section_for_result{
+
+}

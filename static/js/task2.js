@@ -3,6 +3,8 @@
 
 
 async function wikiFetch(){
+
+    clearBox("section_for_result")
     let search_term = getSearchText()
 
     let url_for_api_call = buildURI(search_term)
@@ -13,21 +15,38 @@ async function wikiFetch(){
     //
     let myJson = await answer.json()
     // define array index
-    let i = 1
+
     // create a div
-    const node = document.createElement("div");
+    const rootelement = document.createElement("div");
     // create text from json
-    const textnode = document.createTextNode(myJson.query.search[i].title);
+
+    rootelement.classList.add("search_result_grid_wrapper")
+
+
+
+    let textnode
+    for(let i = 0; i < myJson.query.search.length;i++){
+        let row_element = document.createElement("div")
+        textnode = document.createTextNode(myJson.query.search[i].title);
+        row_element.appendChild(textnode)
+        rootelement.appendChild(row_element);
+
+        row_element.classList.add("search_result_grid_child")
+
+        //textnode = document.createTextNode(myJson.query.search[i].snippet);
+        //row_element.appendChild(textnode)
+        //rootelement.appendChild(row_element);
+    }
+
 
     const body = document.querySelector("body");
     const section = document.getElementById("section_for_result");
     // debugger
 
     // append text to the created div
-    node.appendChild(textnode);
+
     // append  the div to the body
-    body.appendChild(node);
-    section.appendChild(node);
+    section.appendChild(rootelement);
 }
 
 function getSearchText(){
@@ -42,4 +61,9 @@ function buildURI(search_term){
     // http required due to Werkzeug only supporting http
     let uri = "http://"+host+proxy_path+wikipedia_link_first+search_term+wikipedia_link_second
     return uri
+}
+
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
 }

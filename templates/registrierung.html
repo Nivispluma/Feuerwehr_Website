@@ -3,15 +3,63 @@
 {% block content %}
 <div class="login_wrapper">
     <form method="post">
-        {{ registration_form.username(class_='login_element login_text_box', placeholder="Benutzername") }}
+        {% if registration_form.user_email.errors %}
+            {{ registration_form.user_email(class_='login_element login_text_box login_error_box', placeholder="Email") }}
+            <div class="invalid_feedback">
+                {% for error in registration_form.user_email.errors %}
+                    <span class="login_error_text">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ registration_form.user_email(class_='login_element login_text_box', placeholder="Email") }}
+        {% endif %}
+
+
         <br>
-        {{ registration_form.user_email(class_='login_element login_text_box', placeholder="Email") }}
+
+
+        {% if registration_form.username.errors %}
+            {{ registration_form.username(class_='login_element login_text_box login_error_box', placeholder="Benutzername") }}
+            <div class="invalid_feedback">
+                {% for error in registration_form.username.errors %}
+                    <span class="login_error_text">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ registration_form.username(class_='login_element login_text_box', placeholder="Benutzername") }}
+        {% endif %}
+
         <br>
-        {{ registration_form.password(class_='login_element login_text_box', placeholder="Passwort") }}
+
+        {% if registration_form.password.errors %}
+            {{ registration_form.password(class_='login_element login_text_box login_error_box', placeholder="Passwort") }}
+            <div class="invalid_feedback">
+                {% for error in registration_form.password.errors %}
+                    <span class="login_error_text">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ registration_form.password(class_='login_element login_text_box ', placeholder="Passwort") }}
+        {% endif %}
+
         <br>
-        {{ registration_form.confirm_password(class_='login_element login_text_box', placeholder="Passwort") }}
+
+
+        {% if registration_form.confirm_password.errors %}
+            {{ registration_form.confirm_password(class_='login_element login_text_box', placeholder="Passwort bestätigen") }}
+            <div class="invalid_feedback">
+                {% for error in registration_form.confirm_password.errors %}
+                    <span class="login_error_text">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ registration_form.confirm_password(class_='login_element login_text_box', placeholder="Passwort bestätigen") }}
+        {% endif %}
+
+
         <br>
-        {{ registration_form.submit_button(class_='login_element login_submit_button') }}
+        {{ registration_form.csrf_token }}
+        {{ registration_form.submit_button(class_='login_submit_button login_element') }}
     </form>
 </div>
 {% endblock %}

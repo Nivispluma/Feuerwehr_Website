@@ -19,9 +19,10 @@
 
 <body>
 
+    <!--  -->
     <section class="header img_side_to_side"  style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
 
-        <!-- nav -->
+        <!-- display nav -->
         <div class="grid-container-nav">
             <div class="grid-item item1">
                 <a href="layout.html"><img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}"> </a>
@@ -38,7 +39,7 @@
 
         </div>
 
-        <!-- -->
+        <!-- display login items -->
 
         <div class="login_icons">
             <a href={{ url_for('login_page') }}>
@@ -48,6 +49,22 @@
                 <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
             </a>
         </div>
+
+
+        <!-- flash messages here -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert" id="hideMe">
+                {% for category, message in messages %}
+                    <div class=" alert_{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
         <!-- -->
 
 

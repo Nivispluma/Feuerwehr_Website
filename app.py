@@ -18,18 +18,19 @@ from helper import get_background_img_path
 # for reverse proxy
 import requests
 
-
+# html Forms
 from forms import RegistrationForm, UserLogin
-
+# Database
 from flask_sqlalchemy import SQLAlchemy
-
-
+# Hashing
+from flask_bcrypt import Bcrypt
 # --------------------------- Config ----------------------------------------
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6be7ec69776fa02df4c2970a3c197a35'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 fw_db = SQLAlchemy(app)  # create database instance
+bcrypt = Bcrypt(app)
 
 # ------------------------------------------------------------------------
 
@@ -113,16 +114,21 @@ def registration_page():  # put application's code here
 
     registration_form = RegistrationForm()
     # ---------------------------------------------------
-    # just some debugging BS
-    if request.method == 'POST':
-        print("Schmutz")
-    print(registration_form.validate_on_submit())
-    print(registration_form.errors)
-    # ---------------------------------------------------
 
     if registration_form.validate_on_submit():
-        flash(f'Account wurde erstellt für {registration_form.username.data}', 'success')
-        return redirect(url_for('index_page'))
+        print(registration_form.is_submitted())
+        # ----------------- Database Stuff ----------------------------------
+        # create hashed password from password form
+        hashed_password = bcrypt.generate_password_hash(registration_form.password.data).decode('utf-8')
+        # create Database entry
+        user = User(username=registration_form.username.data, user_email=registration_form.user_email.data, password=hashed_password)
+        # add and commit new User to the Database
+        fw_db.session.add(user)
+        fw_db.session.commit()
+        # ---------------------------------------------------
+
+        flash(f'Account wurde erstellt!', 'success')
+        return redirect(url_for('login_page'))
 
     return render_template("registrierung.html", img_var_path=get_background_img_path(), registration_form=registration_form)
 
@@ -144,9 +150,9 @@ def login_page():  # put application's code here
     # ---------------------------------------------------
 
     if login_form.validate_on_submit():
-        # flash(f'Wilkommen {login_form.user_email.data}', 'success')
-        print("Registration debug")
-        return redirect(url_for("index_page"))
+        flash(f'Wilkommen {login_form.user_email.data}', 'success')
+
+        return redirect(url_for("test_page"))
 
     return render_template("login.html", img_var_path=get_background_img_path(), login_form=login_form)
 

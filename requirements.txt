@@ -5,3 +5,4 @@ wtforms[email]
 flask-sqlalchemy
 requests
 flask-bcrypt
+flask-login

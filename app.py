@@ -24,18 +24,22 @@ from forms import RegistrationForm, UserLogin
 from flask_sqlalchemy import SQLAlchemy
 # Hashing
 from flask_bcrypt import Bcrypt
-# --------------------------- Config ----------------------------------------
+# Login
+from flask_login import LoginManager, UserMixin, login_user
+
+# --------------------------- Config and Init ----------------------------------------
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '6be7ec69776fa02df4c2970a3c197a35'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 fw_db = SQLAlchemy(app)  # create database instance
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 
-# ------------------------------------------------------------------------
+# --------------------------- Database Stuff ---------------------------------------------
 
 
-class User(fw_db.Model):  # Defines the User Table
+class User(fw_db.Model, UserMixin):  # Defines the User Table
     id = fw_db.Column(fw_db.Integer, primary_key=True)
     username = fw_db.Column(fw_db.String(20), unique=True, nullable=False)
     user_email = fw_db.Column(fw_db.String(100), unique=True, nullable=False)
@@ -46,10 +50,14 @@ class User(fw_db.Model):  # Defines the User Table
     def __repr__(self):
         return f"User('{self.id}','{self.username}','{self.user_email}','{self.profile_img}')"
 
+    # --------------------------------------------------
 
-# Hilfe gibt es durch den Guide
-# https://www.youtube.com/watch?v=oYRda7UtuhA&t=524s
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+# --------------------------- Route Stuff ---------------------------------------------
 
 @app.route('/')
 @app.route('/home')
@@ -150,9 +158,14 @@ def login_page():  # put application's code here
     # ---------------------------------------------------
 
     if login_form.validate_on_submit():
-        flash(f'Wilkommen {login_form.user_email.data}', 'success')
+        user = User.query.filter_by(user_email=login_form.user_email.data).first()
+        if user and bcrypt.check_password_hash(user.password, login_form.password.data):
+            login_user(user)
+            flash(f'Wilkommen {login_form.user_email.data}', 'success')
+            return redirect(url_for("test_page"))
 
-        return redirect(url_for("test_page"))
+        else:
+            flash(f'Login fehlgeschlagen', 'failure')
 
     return render_template("login.html", img_var_path=get_background_img_path(), login_form=login_form)
 

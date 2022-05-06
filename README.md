@@ -12,7 +12,7 @@ python --version => python 3.10
 ```
 
 
-If you are Running the right version
+If you are Running the right version,
 Run Powershell in the repositorys main Folder (Shift + Rightclick > Run Phowershell)
 Insinde Powershell switch to cmd, in order to have all the neccesary privileges
 
@@ -43,6 +43,21 @@ pip install wheel
 pip install -r requirements.txt
 ```
 
+### SASS & SCSS
+
+For SASS and SCSS to work, you need to use "file Watchers" in PyCharm. **An installation of Node.js is mandatory**.
+
+
+```cmd
+npm --version
+```
+
+
+```cmd
+npm install -g sass
+```
+
+
 ## Start Web Service
 
 ### Normal Startup - Linux
@@ -50,9 +65,7 @@ pip install -r requirements.txt
 Login activated, debuging deactivated
 
 ````
-
 ./startflask
-
 ````
 
 ### Normal Startup - Windows

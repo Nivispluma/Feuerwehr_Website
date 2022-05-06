@@ -73,7 +73,7 @@
     list-style: none;
     display: inline-block;
     padding: 8px 50px;
-    position: relative;
+    position: static;
 }
 
 .nav-links ul li a
@@ -83,13 +83,7 @@
     font-size: x-large;
 }
 
-.nav-links a
-{
-    /*border-color: #1c1c1c;
-    background-color: #001A4D;
-    padding: 12px;
-    box-shadow: 2px 2px 7px 1px #04273a;*/
-}
+
 
 .nav-links ul li::after{
     content: '';
@@ -352,6 +346,13 @@
 
 .alert_success{
     background-color: greenyellow;
+    border-radius: 1vh;
+    color: #272727;
+    padding: 1vh;
+}
+
+.alert_failure{
+    background-color: #ff4a4a;
     border-radius: 1vh;
     color: #272727;
     padding: 1vh;

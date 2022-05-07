@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" content="with=device-width, initial-scale = 1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/page_style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
             <div class="grid-item item1">
                 <a href="layout.html"><img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}"> </a>
             </div>
-            <div class="nav-links grid-item-nav item2">
+            <div class="nav-links item2">
                 <ul id="menu">
                     <li><a href={{ url_for('index_page') }}>Home</a></li>
                     <li><a href={{ url_for('choose_emergency_operation') }}>Einsätze</a></li>

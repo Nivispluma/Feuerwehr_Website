@@ -18,38 +18,68 @@
 
 <!----------------------------------------------------------------------------------------------------------------------------------->
 
-<body>
+<body onresize="checkWindowSize()">
 
     <!--  -->
     <section class="header img_side_to_side"  style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
 
         <!-- display nav -->
         <div class="grid-container-nav">
-            <div class="grid-item item1">
+            <div class="item1" id="picture_nav_bar">
                 <a href="layout.html"><img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}"> </a>
             </div>
             <div class="nav-links item2">
-                <ul id="menu">
-                    <li><a href={{ url_for('index_page') }}>Home</a></li>
-                    <li><a href={{ url_for('choose_emergency_operation') }}>Einsätze</a></li>
-                    <li><a href={{ url_for('gallery_page') }}>Galerie</a></li>
-                    <li><a href={{ url_for('gallery_page') }}>Downloads</a></li>
-                    <li><a href={{ url_for('gallery_page') }}>Impressum</a></li>
+                <ul id="text_nav_bar">
+                    <li>
+                        <a href={{ url_for('index_page') }}>Home</a>
+                    </li>
+                    <li>
+                        <a href={{ url_for('choose_emergency_operation') }}>Einsätze</a>
+                    </li>
+                    <li>
+                        <a href={{ url_for('gallery_page') }}>Galerie</a>
+                    </li>
+                    <li>
+                        <a href={{ url_for('gallery_page') }}>Downloads</a>
+                    </li>
+                    <li>
+                        <a href={{ url_for('gallery_page') }}>Impressum</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Menu -->
+
+                <ul id="icon_nav_bar" class="hidden_element">
+                    <li>
+                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/home.svg') }}">
+                    </li>
+                    <li>
+                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/emergency.svg') }}">
+                    </li>
+                    <li>
+                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/photo_library.svg') }}">
+                    </li>
+                    <li>
+                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/photo_library.svg') }}">
+                    </li>
+                    <li>
+                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/info.svg') }}">
+                    </li>
                 </ul>
             </div>
-
+            <!-- display login items -->
+            <div class="item3 login_icons">
+                <a href={{ url_for('login_page') }}>
+                    <img class="login_icon_element resize_nav_items" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/login_white_24dp.svg') }}">
+                </a>
+                <a href={{ url_for('registration_page') }}>
+                    <img class="login_icon_element resize_nav_items" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
+                </a>
+            </div>
         </div>
 
-        <!-- display login items -->
 
-        <div class="login_icons">
-            <a href={{ url_for('login_page') }}>
-                <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/login_white_24dp.svg') }}">
-            </a>
-            <a href={{ url_for('registration_page') }}>
-                <img class="login_icon_element" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/account_circle_white_24dp.svg') }}">
-            </a>
-        </div>
+
 
 
         <!-- flash messages here -->
@@ -83,6 +113,7 @@
 
     {% block scripts %}
     {% endblock %}
-    <script src='{{url_for('static',filename='js/scripts.js')}}'></script>
+    <!--<script src='{{url_for('static',filename='js/scripts.js')}}'></script>-->
+    <script src='{{url_for('static',filename='js/mobile_webpage.js')}}'></script>
 </body>
 </html>

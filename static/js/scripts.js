@@ -10,10 +10,6 @@ function myFunction(){
     document.getElementById("demo").innerHTML = add()
 }
 
-//----------------------
-
-
-
 //--------------------------------------------------------
 
 function createMenuItem(menu_item) {

@@ -19,14 +19,12 @@
 <!----------------------------------------------------------------------------------------------------------------------------------->
 
 <body onresize="checkWindowSize()">
-
-    <!--  -->
-    <section class="header img_side_to_side"  style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
-
-        <!-- display nav -->
-        <div class="grid-container-nav">
+<!-- display nav -->
+        <div class="nav-grid-wrapper">
             <div class="item1" id="picture_nav_bar">
-                <a href="layout.html"><img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}"> </a>
+                <a href="layout.html">
+                    <img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}">
+                </a>
             </div>
             <div class="nav-links item2">
                 <ul id="text_nav_bar">
@@ -78,41 +76,38 @@
             </div>
         </div>
 
+    <!-- content -->
 
+    {% block content %}
+    {% endblock %}
 
-
-
-        <!-- flash messages here -->
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="alert" id="hideMe">
-                {% for category, message in messages %}
-                    <div class=" alert_{{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-
-        <!-- -->
-
-
-        {% block content %}
-        {% endblock %}
-
-
-
-    </section>
 
     <!-- -->
 
-    {% block further %}
-    {% endblock %}
-
     {% block scripts %}
     {% endblock %}
+
+
+
+    <!-- flash messages here -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert" id="hideMe">
+            {% for category, message in messages %}
+                <div class=" alert_{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+
+
+
+
     <!--<script src='{{url_for('static',filename='js/scripts.js')}}'></script>-->
     <script src='{{url_for('static',filename='js/mobile_webpage.js')}}'></script>
 </body>

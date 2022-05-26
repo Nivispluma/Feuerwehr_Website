@@ -1,8 +1,8 @@
 {% extends "base_layout.html" %}
 
 {% block content %}
-
-    <div class="search_bar_wrapper">
+<section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
+    <div class="search_bar_wrapper first-content-section">
         <input class="search_bar" id="searchBar" type="text" placeholder="Suchbegriff eingeben">
         <img class="login_icon_element search_button" onclick="wikiFetch()" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/icons/search_white_24dp.svg') }}">
     </div>
@@ -10,7 +10,7 @@
     <div class="subsection" id="section_for_result">
 
     </div>
-
+</section>
 {% endblock %}
 
 

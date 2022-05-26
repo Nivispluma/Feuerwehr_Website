@@ -14,10 +14,17 @@
   z-index: -1;
 }
 
-.header {
+.content-section {
+  display: inline-grid;
   min-height: 100vh;
-  width: 100%;
   background-color: #272727;
+  align-content: center;
+  text-align: center;
+  color: white;
+}
+
+.first-content-section {
+  margin-top: 10vh;
 }
 
 #icon_nav_bar {
@@ -108,12 +115,33 @@
   padding: 1vh;
 }
 
+.subsection {
+  margin-top: 5vh;
+}
+
+/*-------------------- New Nav --------------------*/
+.nav-grid-wrapper {
+  display: inline grid;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  /*background: linear-gradient(135deg, $gradient-lightblue 0%, $gradient-reallydarkblue 50%);*/
+  background: linear-gradient(rgba(7, 35, 65, 0.9), rgba(7, 35, 65, 0.9), rgba(28, 110, 164, 0));
+  white-space: nowrap;
+}
+
 /*-------------------- Nav Grid -------------------------*/
+/* nicht mehr verwendet*/
 .grid-container-nav {
   display: inline-grid;
   align-items: center;
   width: 100%;
-  grid-template-columns: [item1] 15vw [item2] 70vw [item3] 15vw;
+  grid-template-columns: [item1] 30vw [item2] 70vw [item3] 30vw;
+  position: fixed;
+}
+
+.grid-container-nav a {
+  position: absolute;
 }
 
 .item1 {
@@ -139,13 +167,6 @@
   align-items: center;
 }
 
-/* resizing the Page Logo */
-.resize {
-  width: 150px;
-  height: auto;
-}
-
-/* nav beauty */
 .nav-links {
   flex: 1;
   text-align: center;
@@ -154,33 +175,36 @@
 .nav-links ul li {
   list-style: none;
   display: inline-block;
-  padding: 8px 50px;
+  padding: 2vw;
   position: static;
 }
 
 .nav-links ul li a {
   color: #fff;
   text-decoration: none;
-  font-size: x-large;
 }
 
-.nav-links ul li::after {
-  content: "";
-  width: 0%;
-  height: 2px;
-  background: coral;
-  display: block;
-  margin: auto;
-  transition: 0.5s;
+/*------------------ emergency Selection ------------------*/
+.em_selection_grid_wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.nav-links ul li:hover::after {
-  content: "";
-  width: 100%;
-  height: 4px;
-  background: coral;
-  display: block;
-  margin: auto;
+.em_selection_grid_child {
+  white-space: nowrap;
+  flex: 1 1 0px;
+  min-width: 150px;
+  padding: 2vw;
+  margin: 1vw;
+  width: fit-content;
+  background: linear-gradient(139deg, rgba(7, 35, 65, 0.9), rgba(28, 110, 164, 0.6));
+  border-radius: 1vw;
+}
+
+/*------------------ resizing the Page Logo ------------------*/
+.resize {
+  width: 150px;
+  height: auto;
 }
 
 /*------------------ Login Icons ---------------------*/
@@ -188,6 +212,7 @@
   width: fit-content;
   float: right;
   margin: 20px;
+  white-space: nowrap;
 }
 
 .login_icon_element {
@@ -198,12 +223,15 @@
 /* -------------------- login -------------------------- */
 .login_wrapper {
   display: grid;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   grid-auto-flow: row;
   width: fit-content;
   padding: 20px;
   border-radius: 10px;
   justify-items: center;
+  /*to counter inheritance*/
+  text-align: left;
   background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
 }
 
@@ -265,10 +293,7 @@
 @media (max-width: 900px) {
   /** Größerer Viewport: Tablett **/
   .alert {
-    position: fixed;
-    bottom: 0;
     right: 50%;
-    display: grid;
   }
 }
 /*=======================================================================================*/
@@ -279,14 +304,8 @@
   /** Großer Viewport: Browserfenster **/
   /*------------------ Mobile Portrait CSS ---------------------*/
   /*------------------ Mobile Landscape CSS ---------------------*/
-  .grid-container-nav {
-    /* Mobile Stuff */
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
-    min-width: 370px;
-    grid-template-columns: [item1] 70vw [item2] 15vw;
+  .nav-grid-wrapper {
+    background: linear-gradient(135deg, rgba(28, 110, 164, 0.4), rgba(7, 35, 65, 0.8));
   }
 
   .item2 {
@@ -310,48 +329,11 @@
   }
 
   .alert {
-    position: fixed;
-    bottom: 0;
     right: 50%;
-    display: grid;
   }
 
-  /* nav beauty */
-  .nav-links {
-    flex: 1;
-    text-align: center;
-  }
-
-  .nav-links ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 2vw;
-    position: static;
-  }
-
-  .nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: x-large;
-  }
-
-  .nav-links ul li::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: coral;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-  }
-
-  .nav-links ul li:hover::after {
-    content: "";
-    width: 100%;
-    height: 4px;
-    background: coral;
-    display: block;
-    margin: auto;
+  .subsection {
+    margin-top: 10vh;
   }
 }
 /*=======================================================================================*/
@@ -364,6 +346,7 @@
   right: 50%;
   top: 50%;
   padding: 50px;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=page_style.css.map */

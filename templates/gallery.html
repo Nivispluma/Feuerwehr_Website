@@ -1,13 +1,14 @@
 {% extends "base_layout.html" %}
 
 {% block content %}
+<section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
     <div class="grid_gallery">
-{% for image in images%}
-
+        {% for image in images%}
             <img class="gallery_item" loading="lazy" src="static/styles/pictures/gallery/Einsatz 1/{{image}}">
-
-{% endfor %}
+        {% endfor %}
     </div>
+</section>
+
 {% endblock %}
 
 

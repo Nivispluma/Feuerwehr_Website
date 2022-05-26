@@ -1,17 +1,18 @@
 {% extends "base_layout.html" %}
 
 {% block content %}
+
+<section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
     <br>
     <div class="em_selection_grid_wrapper">
-
-{% for emergency in emergencies %}
+        {% for emergency in emergencies %}
         <div class="em_selection_grid_child">
             <h2>{{emergency}}</h2>
         </div>
-{% endfor %}
+        {% endfor %}
     </div>
 
-
+</section>
 {% endblock %}
 
 

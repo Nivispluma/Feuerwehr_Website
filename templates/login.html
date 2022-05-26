@@ -3,51 +3,51 @@
 {% block content %}
 
 
-
-<div class="login_wrapper">
-    <form method="post">
-
-
-        {% if login_form.user_email.errors %}
-            {{ login_form.user_email(class_='login_element login_text_box login_error_box', placeholder="Email") }}
-            <div class="invalid_feedback">
-                {% for error in login_form.user_email.errors %}
-                    <span class="login_error_text">{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ login_form.user_email(class_='login_element login_text_box ', placeholder="Email") }}
-        {% endif %}
+<section class="content-section img_side_to_side " style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
+    <div class="login_wrapper first-content-section">
+        <form method="post">
 
 
-        <br>
-
-        {% if login_form.password.errors %}
-            {{ login_form.password(class_='login_element login_text_box login_error_box', placeholder="Passwort") }}
-            <div class="invalid_feedback">
-                {% for error in login_form.password.errors %}
-                    <span class="login_error_text">{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ login_form.password(class_='login_element login_text_box ', placeholder="Passwort") }}
-        {% endif %}
+            {% if login_form.user_email.errors %}
+                {{ login_form.user_email(class_='login_element login_text_box login_error_box', placeholder="Email") }}
+                <div class="invalid_feedback">
+                    {% for error in login_form.user_email.errors %}
+                        <span class="login_error_text">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ login_form.user_email(class_='login_element login_text_box ', placeholder="Email") }}
+            {% endif %}
 
 
+            <br>
+
+            {% if login_form.password.errors %}
+                {{ login_form.password(class_='login_element login_text_box login_error_box', placeholder="Passwort") }}
+                <div class="invalid_feedback">
+                    {% for error in login_form.password.errors %}
+                        <span class="login_error_text">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ login_form.password(class_='login_element login_text_box ', placeholder="Passwort") }}
+            {% endif %}
 
 
-        <br>
-        {{ login_form.stay_logged_in(class_='login_element login_select_box ', placeholder="login") }}
-        {{ login_form.stay_logged_in.label(class_='login_text ') }}
-        <br>
-        {{ login_form.csrf_token }}
-        {{ login_form.submit_button(class_='login_submit_button login_element') }}
-
-    </form>
 
 
-</div>
+            <br>
+            {{ login_form.stay_logged_in(class_='login_element login_select_box ', placeholder="login") }}
+            {{ login_form.stay_logged_in.label(class_='login_text ') }}
+            <br>
+            {{ login_form.csrf_token }}
+            {{ login_form.submit_button(class_='login_submit_button login_element') }}
 
+        </form>
+
+
+    </div>
+</section>
 {% endblock %}
 
 

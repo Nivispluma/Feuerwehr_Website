@@ -1,5 +1,6 @@
-{% extends "layout.html" %}
+{% extends "base_layout.html" %}
 {% block content%}
+<section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
     <div class="text-box">
         <h1> Feuerwehr Sontheim </h1>
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt <br> ut labore et
@@ -7,6 +8,7 @@
             clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
         </p>
     </div>
+</section>
 {% endblock content %}
 
 {% block further %}

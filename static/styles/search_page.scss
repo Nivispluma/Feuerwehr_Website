@@ -1,0 +1,45 @@
+@import "color.scss";
+
+/*-------------------- search Page -------------------------*/
+
+.search_bar_wrapper{
+    margin: auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(135deg, $gradient-lightblue 0%, $gradient-reallydarkblue 100%);
+}
+
+.search_bar{
+    border-width: 0;
+    background-color: #272727;
+    color: $textcolor-darkmode;
+    border-radius: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    width: 25vw;
+}
+
+
+.search_result_grid_wrapper{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(135deg, $gradient-lightblue 0%, $gradient-reallydarkblue 100%);
+    padding: 2vh;
+    border-radius: 3vh;
+}
+
+.search_result_grid_child{
+    border-radius: 1vh;
+    margin: 1vh;
+    color: $textcolor-darkmode;
+    text-align: center;
+    padding: 1vh;
+}
+
+.subsection{
+    margin-top: 5vh;
+}

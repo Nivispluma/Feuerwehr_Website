@@ -1,5 +1,13 @@
 {% extends "base_layout.html" %}
 
+<!-------------------------- Reference Side specific CSS here -------------------------->
+
+{% block specific_stylesheet %}
+
+{% endblock %}
+
+<!-------------------------- actual Site Content ----------------------------->
+
 {% block content %}
 
 <section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
@@ -15,6 +23,8 @@
 </section>
 {% endblock %}
 
+<!-------------------------- Room for page-individual JS Scripts -------------------------->
 
-{% block further %}
+{% block scripts %}
+
 {% endblock %}

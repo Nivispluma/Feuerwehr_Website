@@ -17,7 +17,7 @@ function changeMenuToDesktop(){
 }
 
 function checkWindowSize(){
-    if (window.innerWidth < 701){
+    if (window.innerWidth < 767){
         changeMenuToMobile()
     }
     else {

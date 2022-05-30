@@ -1,0 +1,29 @@
+.content-section {
+  display: inline-grid;
+  background-color: #272727;
+  align-content: center;
+  text-align: center;
+  color: white;
+}
+
+.content_with_img {
+  min-height: 100vh;
+}
+
+.content_no_img {
+  width: 100%;
+}
+
+.text-box {
+  margin: 20vh 5vw 20vh 5vw;
+}
+
+.text-box h1 {
+  font-size: 3rem;
+}
+
+.text-box p {
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=content.css.map */

@@ -1,0 +1,83 @@
+
+@import 'color.scss';
+
+/*=======================================================================================*/
+/*=======================================================================================*/
+/*=======================================================================================*/
+
+
+.alert{
+     position: fixed;
+     bottom: 0;
+     right: 0;
+     display: grid;
+}
+
+/*------------------ Alert ---------------------*/
+
+.alert_success{
+    background-color: $success-green ;
+    border-radius: 1vh;
+    color: $textcolor-alert ;
+    padding: 1vh;
+}
+
+.alert_failure{
+    background-color: $error-red ;
+    border-radius: 1vh;
+    color: $textcolor-alert;
+    padding: 1vh;
+}
+
+
+/*------------------------- hide alert after 5 sec ---------------------------------------*/
+
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+
+/*------------------------- hide alert after 5 sec ---------------------------------------*/
+
+@media ( max-device-width: 1000px ){
+
+
+    /*------------------ Mobile Portrait CSS ---------------------*/
+    @media (orientation: portrait){
+
+    }
+
+    /*------------------ Mobile Landscape CSS ---------------------*/
+    @media (orientation: landscape) {
+
+    }
+
+    .alert{
+        right: 50%;
+    }
+}

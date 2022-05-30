@@ -36,6 +36,17 @@ fw_db = SQLAlchemy(app)  # create database instance
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 
+
+# ----------------
+
+# Beispieluser
+# testerino@besterino.com
+# Alarma123
+# d65f4sgt65!/")($/
+
+# ----------------
+
+
 # --------------------------- Database Stuff ---------------------------------------------
 
 
@@ -162,7 +173,7 @@ def login_page():  # put application's code here
         if user and bcrypt.check_password_hash(user.password, login_form.password.data):
             login_user(user)
             flash(f'Wilkommen {login_form.user_email.data}', 'success')
-            return redirect(url_for("test_page"))
+            return redirect(url_for("index_page"))
 
         else:
             flash(f'Login fehlgeschlagen', 'failure')

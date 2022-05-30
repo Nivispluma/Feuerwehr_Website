@@ -1,7 +1,15 @@
 {% extends "base_layout.html" %}
 
+<!-------------------------- Reference Side specific CSS here -------------------------->
+
+{% block specific_stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/login_and_registration.css') }}">
+{% endblock %}
+
+<!-------------------------- actual Site Content ----------------------------->
+
 {% block content %}
-<section class="content-section img_side_to_side" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
+<section class="content-section img_side_to_side content_with_img" style="background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('{{ url_for('static', filename=img_var_path) }}')">
     <div class="login_wrapper first-content-section">
         <form method="post">
             {% if registration_form.user_email.errors %}
@@ -66,6 +74,8 @@
 </section>
 {% endblock %}
 
+<!-------------------------- Room for page-individual JS Scripts -------------------------->
 
-{% block further %}
+{% block scripts %}
+
 {% endblock %}

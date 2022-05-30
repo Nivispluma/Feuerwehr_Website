@@ -1,0 +1,82 @@
+
+@import 'color.scss';
+
+
+/*=======================================================================================*/
+/*=======================================================================================*/
+/*=======================================================================================*/
+
+
+/* -------------------- login -------------------------- */
+
+.login_wrapper{
+
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-auto-flow: row;
+
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+
+    justify-items: center;
+    /*to counter inheritance*/
+    text-align: left;
+
+    background: linear-gradient(135deg, $gradient-lightblue 0%, $gradient-reallydarkblue 100%);
+
+}
+
+.login_element{
+    border-width: 0;
+    background-color: #272727;
+    color: $textcolor-darkmode;
+}
+
+.login_text_box{
+
+    border-radius: 7px;
+
+    width: 10rem;
+    height: 2rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.login_select_box{
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+.login_submit_button{
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.login_text{
+    color: $textcolor-darkmode;
+}
+
+
+
+
+@media ( max-device-width: 1000px ){
+
+
+
+  /*------------------ Mobile Portrait CSS ---------------------*/
+  @media (orientation: portrait){
+
+  }
+
+  /*------------------ Mobile Landscape CSS ---------------------*/
+  @media (orientation: landscape) {
+
+  }
+
+}

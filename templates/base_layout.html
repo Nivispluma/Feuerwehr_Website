@@ -4,6 +4,11 @@
     <meta charset="UTF-8" content="with=device-width, initial-scale = 1.0">
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/page_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/alerts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/content.css') }}">
+    {% block specific_stylesheet %}
+    {% endblock %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +23,7 @@
 
 <!----------------------------------------------------------------------------------------------------------------------------------->
 
-<body onresize="checkWindowSize()">
+<body>
 <!-- display nav -->
         <div class="nav-grid-wrapper">
             <div class="item1" id="picture_nav_bar">
@@ -43,6 +48,10 @@
                     <li>
                         <a href={{ url_for('gallery_page') }}>Impressum</a>
                     </li>
+                    <li>
+                        <a href={{ url_for('wiki_search') }}>Dienste</a>>
+                    </li>
+
                 </ul>
 
                 <!-- Mobile Menu -->
@@ -104,11 +113,5 @@
     {% endwith %}
 
 
-
-
-
-
-    <!--<script src='{{url_for('static',filename='js/scripts.js')}}'></script>-->
-    <script src='{{url_for('static',filename='js/mobile_webpage.js')}}'></script>
 </body>
 </html>

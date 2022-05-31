@@ -3,7 +3,7 @@
 <!-------------------------- Reference Side specific CSS here -------------------------->
 
 {% block specific_stylesheet %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/emergency_selection_page.css') }}">
 {% endblock %}
 
 <!-------------------------- actual Site Content ----------------------------->
@@ -15,7 +15,7 @@
     <div class="em_selection_grid_wrapper">
         {% for emergency in emergencies %}
         <div class="em_selection_grid_child">
-            <h2>{{emergency}}</h2>
+            <h1>{{emergency}}</h1>
         </div>
         {% endfor %}
     </div>

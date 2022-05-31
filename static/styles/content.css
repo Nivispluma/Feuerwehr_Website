@@ -24,6 +24,12 @@
 
 .text-box p {
   font-size: 1.6rem;
+  line-height: 140%;
+}
+
+.text-box b {
+  font-weight: 600;
+  font-size: 1.8rem;
 }
 
 /*# sourceMappingURL=content.css.map */

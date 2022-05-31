@@ -1,0 +1,22 @@
+/* -------------------- gallery -------------------------- */
+.grid_gallery {
+  /*
+      display: inline-grid;
+      align-items: center;
+      width: 100%
+      */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 15vh;
+}
+
+.gallery_item {
+  width: max(400px, 28%);
+  height: auto;
+  padding: 4vh;
+  flex: 1;
+  align-items: center;
+}
+
+/*# sourceMappingURL=galery.css.map */

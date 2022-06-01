@@ -32,4 +32,12 @@
   font-size: 1.8rem;
 }
 
+@media (max-device-width: 1000px) {
+  /*------------------ Mobile Portrait CSS ---------------------*/
+  /*------------------ Mobile Landscape CSS ---------------------*/
+  .content-section {
+    align-content: unset;
+  }
+}
+
 /*# sourceMappingURL=content.css.map */

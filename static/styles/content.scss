@@ -1,4 +1,4 @@
-@import "color.scss";
+@import "values";
 
 .content-section {
     display: inline-grid;
@@ -33,4 +33,21 @@
 .text-box b{
     font-weight: 600;
     font-size: 1.8rem;
+}
+
+@media ( max-device-width: 1000px ){
+
+    /*------------------ Mobile Portrait CSS ---------------------*/
+    @media (orientation: portrait){
+
+    }
+
+    /*------------------ Mobile Landscape CSS ---------------------*/
+    @media (orientation: landscape) {
+
+    }
+
+    .content-section{
+        align-content: unset;
+    }
 }

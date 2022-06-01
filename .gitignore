@@ -152,10 +152,10 @@ cython_debug/
 #.idea/
 static/styles/alerts.css
 static/styles/alerts.css.map
-static/styles/color.css.map
-static/styles/color.css.map
-static/styles/color.css.map
-static/styles/color.css
+static/styles/values.css.map
+static/styles/values.css.map
+static/styles/values.css.map
+static/styles/values.css
 static/styles/content.css.map
 static/styles/content.css
 static/styles/login_and_registration.css

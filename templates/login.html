@@ -39,12 +39,6 @@
                 {{ login_form.password(class_='login_element login_text_box ', placeholder="Passwort") }}
             {% endif %}
 
-
-
-
-            <br>
-            {{ login_form.stay_logged_in(class_='login_element login_select_box ', placeholder="login") }}
-            {{ login_form.stay_logged_in.label(class_='login_text ') }}
             <br>
             {{ login_form.csrf_token }}
             {{ login_form.submit_button(class_='login_submit_button login_element') }}

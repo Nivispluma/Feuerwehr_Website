@@ -1,5 +1,6 @@
 
-@import 'color.scss';
+@import 'values';
+
 
 
 /*=======================================================================================*/
@@ -17,8 +18,9 @@
     grid-auto-flow: row;
 
     width: fit-content;
+    height: fit-content;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: calc((2vh + 2vw) / 2);
 
     justify-items: center;
     /*to counter inheritance*/
@@ -45,17 +47,14 @@
 }
 
 .login_select_box{
-    border-radius: 20px;
+    border-radius: calc((.7vh + .7vw) / 2);
     margin-left: 20px;
 }
 
 .login_submit_button{
     margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: calc((.7vh + .7vw) / 2);
 }
 
 .login_text{
@@ -67,16 +66,36 @@
 
 @media ( max-device-width: 1000px ){
 
+    /*------------------ Mobile Portrait CSS ---------------------*/
+    @media (orientation: portrait){
+
+    }
+
+    /*------------------ Mobile Landscape CSS ---------------------*/
+    @media (orientation: landscape) {
+
+    }
+    .login_wrapper{
+        width: fit-content;
+        margin-top: 13vh;
+    }
+
+    .login_element{
+        font-size: $mobile-font-size;
+    }
+
+    .login_text_box{
+        border-radius: calc((.7vh + .7vw) / 2);
+        width: 50vw;
+        height: 3vh;
+        padding: calc((2vh + 1vw)/2);
+        margin: calc((1vh + 1vw)/2);
+    }
 
 
-  /*------------------ Mobile Portrait CSS ---------------------*/
-  @media (orientation: portrait){
-
-  }
-
-  /*------------------ Mobile Landscape CSS ---------------------*/
-  @media (orientation: landscape) {
-
-  }
+    .login_submit_button{
+        margin: 10px;
+        padding: calc((1vh + 1vw)/1.5);
+    }
 
 }

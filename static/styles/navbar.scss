@@ -1,4 +1,4 @@
-@import "color.scss";
+@import "values";
 
 /*=======================================================================================*/
 /*=======================================================================================*/
@@ -9,24 +9,15 @@
 .nav-grid-wrapper{
     display: inline grid;
     align-items: center;
-    width:100%;
+    max-width:100%;
+    width: 100%;
     position: fixed;
-    /*background: linear-gradient(135deg, $gradient-lightblue 0%, $gradient-reallydarkblue 50%);*/
     background: linear-gradient(rgba($gradient-reallydarkblue-R,$gradient-reallydarkblue-G,$gradient-reallydarkblue-B,0.9),rgba($gradient-reallydarkblue-R,$gradient-reallydarkblue-G,$gradient-reallydarkblue-B,0.9),rgba($gradient-lightblue-R,$gradient-lightblue-G,$gradient-lightblue-B,0));
     white-space: nowrap;
 }
 
 /*-------------------- Nav Grid -------------------------*/
 
-/* nicht mehr verwendet*/
-.grid-container-nav{
-    display: inline-grid;
-    align-items: center;
-    width: 100%;
-    grid-template-columns: [item1] 30vw [item2] 70vw [item3] 30vw;
-    position: fixed;
-
-}
 
 
 
@@ -109,7 +100,10 @@
     }
 
     .nav-grid-wrapper{
-            background: linear-gradient(135deg, rgba($gradient-lightblue-R,$gradient-lightblue-G,$gradient-lightblue-B,0.4),rgba($gradient-reallydarkblue-R,$gradient-reallydarkblue-G,$gradient-reallydarkblue-B,0.8));
+        background: linear-gradient(135deg, rgba($gradient-lightblue-R,$gradient-lightblue-G,$gradient-lightblue-B,0.4),rgba($gradient-reallydarkblue-R,$gradient-reallydarkblue-G,$gradient-reallydarkblue-B,0.8));
+        margin: calc((1vh + 1vw) / 2);
+        border-radius: calc((1vh + 1vw) / 2);
+        width: 97%;
     }
 
     .item2{

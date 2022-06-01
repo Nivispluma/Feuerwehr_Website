@@ -27,7 +27,7 @@
 <!-- display nav -->
         <div class="nav-grid-wrapper">
             <div class="item1" id="picture_nav_bar">
-                <a href="layout.html">
+                <a href={{ url_for('index_page') }}>
                     <img class="resize" alt="Feuerwehr Logo" src="{{url_for('static',filename='styles/pictures/FW_Aktualisierung_Neu.png') }}">
                 </a>
             </div>
@@ -43,9 +43,6 @@
                         <a href={{ url_for('gallery_page') }}>Galerie</a>
                     </li>
                     <li>
-                        <a href={{ url_for('gallery_page') }}>Downloads</a>
-                    </li>
-                    <li>
                         <a href={{ url_for('gallery_page') }}>Impressum</a>
                     </li>
                     <li>
@@ -58,19 +55,29 @@
 
                 <ul id="icon_nav_bar" class="hidden_element">
                     <li>
-                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/home.svg') }}">
+                        <a href={{ url_for('index_page') }}>
+                            <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/home.svg') }}">
+                        </a>
                     </li>
                     <li>
-                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/emergency.svg') }}">
+                        <a href={{ url_for('choose_emergency_operation') }}>
+                            <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/emergency.svg') }}">
+                        </a>
                     </li>
                     <li>
-                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/photo_library.svg') }}">
+                        <a href={{ url_for('gallery_page') }}>
+                            <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/photo_library.svg') }}">
+                        </a>
                     </li>
                     <li>
-                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/photo_library.svg') }}">
+                        <a href={{ url_for('wiki_search') }}>
+                            <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/puzzle.svg') }}">
+                        </a>
                     </li>
                     <li>
-                        <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/info.svg') }}">
+                        <a href={{ url_for('gallery_page')}}>
+                            <img class="resize_nav_items" id="icon_nav_bar" src="{{url_for('static',filename='styles/icons/info.svg') }}">
+                        </a>
                     </li>
                 </ul>
             </div>

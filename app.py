@@ -25,7 +25,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Hashing
 from flask_bcrypt import Bcrypt
 # Login
-from flask_login import LoginManager, UserMixin, login_user
+from flask_login import LoginManager, UserMixin, login_user, user_logged_in
 
 # --------------------------- Config and Init ----------------------------------------
 
@@ -173,6 +173,7 @@ def login_page():  # put application's code here
         if user and bcrypt.check_password_hash(user.password, login_form.password.data):
             login_user(user)
             flash(f'Wilkommen {login_form.user_email.data}', 'success')
+            session["logged_in"] = True
             return redirect(url_for("index_page"))
 
         else:
@@ -186,7 +187,15 @@ def login_page():  # put application's code here
 
 @app.route('/wikiSearch', methods=['POST', 'GET'])
 def wiki_search():
-    return render_template("wikiSearch.html", img_var_path=get_background_img_path())
+    # check if user is logged in, if not redirect to login
+    if "logged_in" in session:
+        if session["logged_in"]:
+            return render_template("wikiSearch.html", img_var_path=get_background_img_path())
+        else:
+            return redirect(url_for("login_page"))
+
+    else:
+        return redirect(url_for("login_page"))
 
 
 # ------------------------------- Reverse Proxy ------------------------------------------------------------

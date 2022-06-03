@@ -1,0 +1,74 @@
+/*=======================================================================================*/
+/*=======================================================================================*/
+/*=======================================================================================*/
+/* -------------------- login -------------------------- */
+.login_wrapper {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-auto-flow: row;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  border-radius: calc((2vh + 2vw) / 2);
+  justify-items: center;
+  /*to counter inheritance*/
+  text-align: left;
+  background: linear-gradient(135deg, #1C6EA4 0%, #072341 100%);
+}
+
+.login_element {
+  border-width: 0;
+  background-color: #272727;
+  color: white;
+}
+
+.login_text_box {
+  border-radius: 7px;
+  width: 10rem;
+  height: 2rem;
+  padding: 10px;
+  margin: 10px;
+}
+
+.login_select_box {
+  border-radius: calc((0.7vh + 0.7vw) / 2);
+  margin-left: 20px;
+}
+
+.login_submit_button {
+  margin: 10px;
+  padding: 5px 10px 5px 10px;
+  border-radius: calc((0.7vh + 0.7vw) / 2);
+}
+
+.login_text {
+  color: white;
+}
+
+@media (max-device-width: 1000px) {
+  /*------------------ Mobile Portrait CSS ---------------------*/
+  /*------------------ Mobile Landscape CSS ---------------------*/
+  .login_wrapper {
+    margin-top: 13vh;
+  }
+
+  .login_element {
+    font-size: calc((2vh + 2vw) / 2);
+  }
+
+  .login_text_box {
+    border-radius: calc((0.7vh + 0.7vw) / 2);
+    width: 50vw;
+    height: 3vh;
+    padding: calc((2vh + 1vw) / 2);
+    margin: calc((1vh + 1vw) / 2);
+  }
+
+  .login_submit_button {
+    margin: 10px;
+    padding: calc((1vh + 1vw) / 1.5);
+  }
+}
+
+/*# sourceMappingURL=login_and_registration.css.map */

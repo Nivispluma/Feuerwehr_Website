@@ -6,3 +6,4 @@ flask-sqlalchemy
 requests
 flask-bcrypt
 flask-login
+email_validator

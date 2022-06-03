@@ -3,7 +3,7 @@
   margin: auto;
   width: fit-content;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: calc((1.5vh + 1.5vw) / 2);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,7 +14,7 @@
   border-width: 0;
   background-color: #272727;
   color: white;
-  border-radius: 20px;
+  border-radius: calc((10vh + 10vw) / 2);
   margin-left: 20px;
   padding: 10px;
   width: 25vw;
@@ -38,6 +38,22 @@
 
 .subsection {
   margin-top: 5vh;
+}
+
+@media (max-device-width: 1000px) {
+  /*------------------ Mobile Portrait CSS ---------------------*/
+  /*------------------ Mobile Landscape CSS ---------------------*/
+  .search_bar_wrapper {
+    margin-top: 13vh;
+  }
+
+  .search_bar {
+    font-size: calc((2vh + 2vw) / 2);
+    width: 50vw;
+    height: 3vh;
+    padding: calc((2vh + 1vw) / 2);
+    margin: calc((1vh + 1vw) / 2);
+  }
 }
 
 /*# sourceMappingURL=search_page.css.map */

@@ -43,6 +43,12 @@
     color: $textcolor-darkmode;
     text-align: center;
     padding: 1vh;
+    text-decoration: none;
+}
+
+.search_result_grid_child:hover{
+    background: rgba($lightgrey-R,$lightgrey-G,$lightgrey-B, 0.2);
+    border-radius: calc((1vh + 1vw) / 2);
 }
 
 .subsection{
@@ -74,6 +80,13 @@
         height: 3vh;
         padding: calc((2vh + 1vw)/2);
         margin: calc((1vh + 1vw)/2);
+    }
+
+    .search_result_grid_wrapper{
+        display: flex;
+        flex-flow: column;
+        width: 80vw;
+        margin: auto;
     }
 
 }

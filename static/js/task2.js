@@ -26,16 +26,18 @@ async function wikiFetch(){
 
     let textnode
     for(let i = 0; i < myJson.query.search.length;i++){
-        let row_element = document.createElement("div")
-        textnode = document.createTextNode(myJson.query.search[i].title);
+        let row_element = document.createElement("a")
+        let node_text = myJson.query.search[i].title
+        textnode = document.createTextNode(node_text);
         row_element.appendChild(textnode)
         rootelement.appendChild(row_element);
 
-        row_element.classList.add("search_result_grid_child")
 
-        //textnode = document.createTextNode(myJson.query.search[i].snippet);
-        //row_element.appendChild(textnode)
-        //rootelement.appendChild(row_element);
+        let wikipedia_basic_link = "https://de.wikipedia.org/wiki/"
+        let wikipedia_link =  wikipedia_basic_link+node_text
+
+        row_element.classList.add("search_result_grid_child")
+        row_element.setAttribute('href',wikipedia_link)
     }
 
 

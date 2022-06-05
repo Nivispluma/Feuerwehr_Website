@@ -34,6 +34,11 @@
   text-decoration: none;
 }
 
+.em_selection_grid_child:hover {
+  background: rgba(210, 210, 210, 0.2);
+  border-radius: calc((1vh + 1vw) / 2);
+}
+
 .wrapper {
   display: grid;
 }

@@ -11,6 +11,7 @@
 
 }
 
+/*------------------ make this stuff not inheritable ---------------------*/
 .img_side_to_side:not(img,div,p,li,ul,a){
     width: 100%;
     background-position: center;
@@ -28,7 +29,7 @@ body{
     margin-top: 10vh;
 }
 
-
+/*------------------ IDs for changing icons ------------------*/
 #text_nav_bar{
 }
 
@@ -46,29 +47,6 @@ body{
 
 
 
-
-
-
-/*--------------cmd
----- emergency Selection ------------------*/
-
-.em_selection_grid_wrapper{
-display: flex;
-    flex-wrap: wrap;
-}
-
-.em_selection_grid_child{
-    white-space: nowrap;
-    flex: 1 1 0px;
-    min-width: 150px;
-    padding: 2vw;
-    margin: 1vw;
-    width: fit-content;
-    background: linear-gradient(139deg,rgba($gradient-reallydarkblue-R,$gradient-reallydarkblue-G,$gradient-reallydarkblue-B,0.9),rgba($gradient-lightblue-R,$gradient-lightblue-G,$gradient-lightblue-B,0.6));
-    border-radius: 1vw;
-
-}
-
 /*------------------ resizing the Page Logo ------------------*/
 
 .resize{
@@ -78,7 +56,7 @@ display: flex;
 }
 
 /*------------------ Login Icons ---------------------*/
-
+/*  these are for the Symbols on the top right side*/
 .login_icons{
     width: fit-content;
     float: right;
@@ -97,17 +75,6 @@ display: flex;
 /*=======================================================================================*/
 /*=======================================================================================*/
 /*=======================================================================================*/
-
-
-/*------------------ Wide Screen CSS ---------------------*/
-
-.topmenu li {                 /** Kleiner Viewport: Handy **/
-	width: 99%;
-	font-size: 0.9rem;
-	padding: 5px;
-	background-color: khaki;
-}
-
 
 
 @media (min-device-width: 1001px)
@@ -137,15 +104,4 @@ display: flex;
 /*=======================================================================================*/
 /*=======================================================================================*/
 /*=======================================================================================*/
-
-
-.schmutz {
-  background-color:#000;
-  color:#fff;
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  padding: 50px;
-  margin: 10px;
-}
 

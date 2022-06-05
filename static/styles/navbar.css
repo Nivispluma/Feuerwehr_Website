@@ -72,6 +72,12 @@
   #picture_nav_bar {
     display: unset;
   }
+
+  /*------------------ Hover Effect, for bigger Screens ---------------------*/
+  #text_nav_bar a:hover {
+    background: rgba(210, 210, 210, 0.2);
+    border-radius: calc((1vh + 1vw) / 2);
+  }
 }
 @media (max-device-width: 1000px) {
   /** Großer Viewport: Browserfenster **/

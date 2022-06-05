@@ -54,7 +54,6 @@
 .nav-links{
     flex: 1;
     text-align: center;
-
 }
 
 .nav-links ul li{
@@ -78,10 +77,18 @@
     }
     #text_nav_bar{
         display: unset;
+
     }
 
     #picture_nav_bar{
         display: unset;
+    }
+
+    /*------------------ Hover Effect, for bigger Screens ---------------------*/
+
+    #text_nav_bar a:hover{
+        background: rgba($lightgrey-R,$lightgrey-G,$lightgrey-B, 0.2);
+        border-radius: calc((1vh + 1vw) / 2);
     }
 }
 

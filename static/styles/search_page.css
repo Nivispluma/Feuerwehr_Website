@@ -1,4 +1,9 @@
 /*-------------------- search Page -------------------------*/
+#search_icon:hover {
+  background: rgba(210, 210, 210, 0.2);
+  border-radius: calc((1vh + 1vw) / 2);
+}
+
 .search_bar_wrapper {
   margin: auto;
   width: fit-content;

@@ -83,7 +83,7 @@ def index_page():  # put application's code here
 @app.route('/Einsatz_Auswahl')
 def choose_emergency_operation():
     emergencies = os.listdir("static/styles/pictures/gallery")
-    return render_template("choose_emergency.html",emergencies=emergencies)
+    return render_template("choose_emergency.html", emergencies=emergencies, img_var_path=get_background_img_path())
 
 # -------------------- show Emergency Report --------------------
 
@@ -187,6 +187,12 @@ def wiki_search():
     else:
         return redirect(url_for("login_page"))
 
+
+# ------------------------------- Impressum -----------------------------------------------------
+
+@app.route('/Impressum', methods=['GET'])
+def impressum_page():
+    return render_template("impressum.html",img_var_path=get_background_img_path())
 
 # ------------------------------- Reverse Proxy ------------------------------------------------------------
 

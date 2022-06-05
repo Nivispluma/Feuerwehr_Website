@@ -1,0 +1,5 @@
+# Brand bei Entsorgungsunternehmen
+>gemeldet: Brand im Gebäude/Sonderbau
+
+ Die große Rauchsäule vom Brand bei der Recyclingfirma Hörger, war um diese Uhrzeit bereits weit zu sehen. In einer Lagerhalle, auf der bayerischen Seite die ebenfalls der Fa. Hörger gehört, hat sich der gelagerte Abfall vermutlich selbst entzündet und somit eine größere Fläche und Volumen von Abfall entzündet. Schnell war klar, dass hier Verstärkung aus dem Landkreis Heidenheim sowie aus dem Landkreis Dillingen nachalarmiert werden musste. Nach und nach wurden dann die herbeigerufenen Floriansjünger in Stellung gebracht sowie ebenfalls die zwei Drehleitern, eine aus Giengen und die andere aus Gundelfingen. Die Wasserversorgung wurde schnell mit mehreren Pumpen und viele Meter von B- und C-Schläuchen hergestellt. Der Brand konnte schnell, mit massivem Wassereinsatz, unter Kontrolle gebracht werden, jedoch das ausräumen und das parallele ablöschen, des aus der Halle ausgeräumten Abfalles, hat große Aufmerksamkeit und Zeit erfordert. Die Ermittlungen hat die Kriminalpolizei Dillingen aufgenommen. 
+ 

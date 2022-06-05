@@ -7,3 +7,4 @@ requests
 flask-bcrypt
 flask-login
 email_validator
+markdown

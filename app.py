@@ -12,6 +12,7 @@ from pathlib import Path
 import os
 import random
 import json
+import markdown
 
 from helper import get_background_img_path
 
@@ -84,6 +85,24 @@ def choose_emergency_operation():
     emergencies = os.listdir("static/styles/pictures/gallery")
     return render_template("choose_emergency.html",emergencies=emergencies)
 
+# -------------------- show Emergency Report --------------------
+
+@app.route('/Einsatzbericht')
+def emergency_report():
+
+    print(request.values)
+    emergency_path = f"static/Einsaetze/{request.values['_param']}.md"
+    try:
+        markdown_file = open(emergency_path, "r", encoding="utf-8")
+        markdown_file_content = markdown_file.read()
+        print(markdown_file_content)
+        emergency_content = markdown.markdown(markdown_file_content)
+        print(emergency_content)
+        markdown_file.close()
+        return render_template("emergency_report.html", emergency_content=emergency_content).encode("utf-8")
+
+    except FileNotFoundError:
+        return redirect("error_handler_page_404")
 
 # -------------------- Gallery Function --------------------
 
@@ -94,35 +113,6 @@ def gallery_page():
     print(images)
     # also give render template the chosen emergency
     return render_template("gallery.html", images=images)
-
-# --------------------------------------------------
-
-# -------------------- Test Function --------------------
-
-
-@app.route('/lab')
-@app.route('/test')
-def test_page():  # put application's code here
-
-    return render_template("test.html", img_var_path=get_background_img_path())
-
-
-# -------------------- Test Function --------------------
-
-
-@app.route('/lab2')
-@app.route('/test2')
-def test_page_2():  # put application's code here
-
-    return render_template("test2.html", img_var_path=get_background_img_path())
-
-
-# -------------------- Test Function --------------------
-
-@app.route('/canvas_test')
-def canvas_page():  # put application's code here
-
-    return render_template("canvas.html", img_var_path=get_background_img_path())
 
 
 # -------------------------- Registrierung -----------------------------------------------------

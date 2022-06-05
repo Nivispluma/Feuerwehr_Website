@@ -15,7 +15,9 @@
     <div class="em_selection_grid_wrapper">
         {% for emergency in emergencies %}
         <div class="em_selection_grid_child">
-            <h1>{{emergency}}</h1>
+            <a href="{{ url_for('emergency_report', _param=emergency) }}">
+                <h1>{{emergency}}</h1>
+            </a>
         </div>
         {% endfor %}
     </div>

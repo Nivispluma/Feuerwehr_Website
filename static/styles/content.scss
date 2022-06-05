@@ -28,11 +28,39 @@
 .text-box p{
     font-size: 1.6rem;
     line-height: 140%;
+    text-align: justify;
 }
 
 .text-box b{
     font-weight: 600;
     font-size: 1.8rem;
+}
+
+.text-box-emergency{
+    margin: 20vh 10vw 20vh 10vw;
+    text-align: justify;
+}
+
+.text-box-emergency h1{
+    font-size: 3rem;
+}
+
+.text-box-emergency p{
+    font-size: 1.6rem;
+    line-height: 140%;
+
+}
+
+.text-box-emergency b{
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.text-box-emergency blockquote{
+    margin: 2vh 0 2vh 0;
+    border-radius: calc((2vh + 2vw) / 2);
+    background: rgba($gradient-lightblue-R,$gradient-lightblue-G,$gradient-lightblue-B,0.3);
+    padding: calc((1vh + 1vw) / 2);
 }
 
 @media ( max-device-width: 1000px ){
@@ -49,5 +77,8 @@
 
     .content-section{
         align-content: unset;
+    }
+    .text-box-emergency {
+        margin: 20vh 5vw 20vh 5vw;
     }
 }

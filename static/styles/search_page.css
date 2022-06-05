@@ -72,6 +72,10 @@
     width: 80vw;
     margin: auto;
   }
+
+  .search_result_grid_child {
+    font-size: calc((2vh + 2vw) / 2);
+  }
 }
 
 /*# sourceMappingURL=search_page.css.map */

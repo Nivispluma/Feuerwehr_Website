@@ -87,6 +87,10 @@
         flex-flow: column;
         width: 80vw;
         margin: auto;
+
     }
 
+    .search_result_grid_child{
+        font-size: $mobile-font-size;
+    }
 }

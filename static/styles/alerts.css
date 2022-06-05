@@ -55,7 +55,7 @@
   /*------------------ Mobile Portrait CSS ---------------------*/
   /*------------------ Mobile Landscape CSS ---------------------*/
   .alert {
-    right: 50%;
+    font-size: calc((2vh + 2vw) / 2);
   }
 }
 

@@ -1,10 +1,6 @@
+@charset "UTF-8";
 /* -------------------- gallery -------------------------- */
 .grid_gallery {
-  /*
-      display: inline-grid;
-      align-items: center;
-      width: 100%
-      */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -18,5 +14,16 @@
   flex: 1;
   align-items: center;
 }
+
+/*------------------ Mobile CSS ---------------------*/
+@media (max-device-width: 1000px) {
+  /** Großer Viewport: Browserfenster **/
+  /*------------------ Mobile Portrait CSS ---------------------*/
+  /*------------------ Mobile Landscape CSS ---------------------*/
+  .gallery_item {
+    width: 70vw;
+  }
+}
+/**/
 
 /*# sourceMappingURL=galery.css.map */
